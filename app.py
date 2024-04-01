@@ -1,12 +1,11 @@
-import plotly.express as px
-from shiny.express import input, ui
-from shinywidgets import render_plotly
-from shiny import reactive, render
-import seaborn as sns
-import pandas as pd
-import palmerpenguins
-
-# Load the Palmer Penguins dataset
+from shiny import reactive, render  
+from shiny.express import input, ui  
+from shinywidgets import render_plotly  
+import pandas as pd  
+import plotly.express as px  
+import seaborn as sns  
+import palmerpenguins 
+import pyarrow  # Adding the pyarrow package
 penguins_df = palmerpenguins.load_penguins()
 
 # Add a reactive calculation to filter the data
@@ -21,14 +20,14 @@ ui.page_opts(title="Penguins Data Tesfamariam", fillable=True)
 with ui.sidebar(open="open"):
     ui.h4("Sidebar")
     ui.input_selectize("selected_attribute", 
-                       "Select Attribute",
-                       ["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]
-                      )
+                    "Select Attribute",
+                    ["bill_length_mm", "bill_depth_mm", "flipper_length_mm", "body_mass_g"]
+                    )
     ui.input_numeric("plotly_bin_count", "Plotly Bin Count", 10)
     ui.input_slider("seaborn_bin_count", "Seaborn Bin Count", 1, 100, 50)
     ui.input_checkbox_group("selected_species_list", "Select Species", 
-                             ["Adelie", "Gentoo", "Chinstrap"],
-                             selected=["Adelie"], inline=False)
+                            ["Adelie", "Gentoo", "Chinstrap"],
+                            selected=["Adelie"], inline=False)
     ui.hr()
     ui.a("My GitHub Repo", href="https://github.com/Tesfamariam100/cintel-03-reactive", target="_blank")
 
@@ -67,10 +66,10 @@ with ui.layout_columns():
         @render_plotly
         def plotly_scatterplot():
             return px.scatter(filtered_data(),
-                              x=input.selected_attribute(),
-                              y="flipper_length_mm",
-                              color="species", 
-                              title="Plotly Scatterplot: Species").update_layout(height=600)
+                        x=input.selected_attribute(),
+                        y="flipper_length_mm",
+                        color="species", 
+                        title="Plotly Scatterplot: Species").update_layout(height=600)
 
     with ui.card(full_screen=True):
         ui.card_header("Seaborn Histogram")
