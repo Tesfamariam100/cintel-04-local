@@ -5,7 +5,6 @@ from shiny import reactive, render
 import seaborn as sns
 import pandas as pd
 from palmerpenguins import load_penguins
-from vega_datasets import data
 import palmerpenguins
 
 # Load the Palmer Penguins dataset
