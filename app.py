@@ -7,7 +7,6 @@ import seaborn as sns
 import palmerpenguins 
 import pyarrow  # Adding the pyarrow package
 penguins_df = palmerpenguins.load_penguins()
-
 # Add a reactive calculation to filter the data
 @reactive.calc
 def filtered_data():

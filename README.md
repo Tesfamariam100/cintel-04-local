@@ -1,25 +1,53 @@
-# Project Name: CC4.1: Orient and Engage (Professional Tools, Install Python)
+# Project: Interactive Reactive App Development
+## Objectives:
+* Follow the typical workflow of a real interactive development project.
+* Create a repository on GitHub, clone it locally, and set up a virtual environment.
+* Design and implement interactive apps focusing on Python development.
+* Utilize Shiny to build client-side web apps without requiring web development skills.
+* Keep track of progress and notes in README.md.
 
-## Welcome
-Welcome to CC4.1! This project helps you switch from using Python and PyShiny in the browser to local development. You'll learn to use essential tools like Python, VS Code, and Git.
+## Before Beginning:
+* Complete orientation and installations as per CC4.1 to CC4.5.
+* Ensure your project repository contains:
+* README.md
+* .gitignore
+* requirements.txt
+* penguins/app.py
 
-## Overview
-This module focuses on local development, which prepares you for real-world scenarios. Mastering these tools enhances your skills for data analytics work.
+## Workflow:
+### Verify App Runs:
+* Run the Shiny app locally using:
+`shiny run --reload --launch-browser penguins/app.py`
 
-## Plan Your Week
-Expect to invest around 20 hours per week. Use weekends to work ahead for optimal learning.
+### Build Client-Side App:
 
-### Actions:
-1. **Create a GitHub Project Repo**: Set up a new project repository on GitHub named "cintel-04-local" and add essential files like `README.md`, `.gitignore`, `requirements.txt`, and `app.py`.
-   
-2. **Download Python**: Install the latest version of Python on your machine and include it in your system's PATH.
+* Export the app to the docs folder:
+`shiny static-assets remove`
+`shinylive export penguins docs`
 
-3. **Install Python, Add to Path, and Verify**: Follow platform-specific instructions to install Python. Verify the installation by checking the version and pip installation.
+* Serve the app locally:
+`py -m http.server --directory docs --bind localhost 8008`
+* Test the app at http://localhost:8008.
 
-4. **Get Help with Python Basics**: Use AI assistants to learn Python basics such as variables, functions, data types, or list comprehensions. Share your conversation and screenshots for verification.
+### Git Add / Commit / Push to GitHub:
+* Add, commit, and push changes:
 
-## Example Project
-Explore the example PyShiny project available [here](https://github.com/denisecase/pyshiny-penguins-dashboard-express). This project serves as a reference for what you'll be creating during this module.
+`git add .`
+`git commit -m "Your commit message"`
+`git push -u origin main`
 
-## Assistance and Support
-Don't hesitate to ask questions or seek assistance. Utilize AI assistants to improve productivity. Let's embark on this journey together!
+### Publish GitHub Pages for the Repo:
+* Configure GitHub Pages in repository settings:
+* Select main branch as the source.
+* Change publication source to docs.
+* Update repository "About" section with the hosted web app link.
+
+### Post-Development Tasks:
+* Modify the browser tab title in docs/index.html.
+* Optionally, add a custom favicon:
+* Generate favicon using https://favicon.io/.
+* Paste favicon.ico into the docs folder.
+* Update docs/index.html with favicon link.
+
+## Conclusion:
+* Upon completion, you'll have a functional penguin dashboard locally and hosted online. 
