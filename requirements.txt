@@ -8,4 +8,4 @@ shiny
 shinylive
 shinywidgets
 altair
-vega-datasets
+vega_datasets
