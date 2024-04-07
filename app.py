@@ -8,7 +8,7 @@ import palmerpenguins
 import pyarrow  # Adding the pyarrow package
 penguins_df = palmerpenguins.load_penguins()
 from faicons import icon_svg
-pip install vega_datasets
+pip install vega-datasets
 # Add a reactive calculation to filter the data
 @reactive.calc
 def filtered_data():
